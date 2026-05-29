@@ -3,7 +3,8 @@ import axios from "axios";
 
 function App() {
   const [file, setFile] = useState(null);
-  const [message, setMessage] = useState("");
+const [message, setMessage] = useState("");
+const [history, setHistory] = useState([]);
 
   const uploadAudio = async () => {
     const formData = new FormData();
@@ -16,6 +17,13 @@ function App() {
       );
 
       setMessage(res.data.text);
+      setHistory((prev) => [
+  ...prev,
+  {
+    id: Date.now(),
+    text: res.data.text,
+  },
+]);
     } catch (error) {
       setMessage("Upload Failed");
     }
