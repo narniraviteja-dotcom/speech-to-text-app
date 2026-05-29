@@ -39,11 +39,29 @@ const [history, setHistory] = useState([]);
         onChange={(e) => setFile(e.target.files[0])}
       />
 
-      <button onClick={uploadAudio}>
-        Upload Audio
-      </button>
+      <button
+  onClick={uploadAudio}
+  className="bg-blue-500 hover:bg-blue-700 text-white px-4 py-2 rounded-lg"
+>
+  Upload Audio
+</button>
 
-      <h2>{message}</h2>
+<h2 className="mt-4 text-lg font-semibold">
+  {message}
+</h2>
+
+<h2 className="mt-6 text-2xl font-bold">
+  Transcription History
+</h2>
+
+{history.map((item) => (
+  <div
+    key={item.id}
+    className="bg-white shadow-md rounded-lg p-4 mt-2"
+  >
+    {item.text}
+  </div>
+))}
     </div>
   );
 }
