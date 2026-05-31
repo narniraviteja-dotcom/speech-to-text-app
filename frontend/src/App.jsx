@@ -4,11 +4,31 @@ import axios from "axios";
 function App() {
   const [file, setFile] = useState(null);
 const [message, setMessage] = useState("");
+const [error, setError] = useState("");
 const [history, setHistory] = useState([]);
 
   const uploadAudio = async () => {
-    const formData = new FormData();
-    formData.append("audio", file);
+    setError("");
+
+if (!file) {
+  setError("Please select an audio file.");
+  return;
+}
+const allowedTypes = [
+  "audio/mpeg",
+  "audio/wav",
+  "audio/x-wav",
+  "audio/mp3",
+  "audio/ogg"
+];
+
+if (!allowedTypes.includes(file.type)) {
+  setError("Only MP3 and WAV files are allowed.");
+  return;
+}
+
+const formData = new FormData();
+formData.append("audio", file);
 
     try {
       const res = await axios.post(
@@ -16,7 +36,6 @@ const [history, setHistory] = useState([]);
         formData
       );
 
-      setMessage(res.data.text);
       setHistory((prev) => [
   ...prev,
   {
@@ -24,11 +43,12 @@ const [history, setHistory] = useState([]);
     text: res.data.text,
   },
 ]);
-    } catch (error) {
-      setMessage("Upload Failed");
-    }
+} catch (err) {
+  setError("Failed to upload or transcribe audio.");
+  console.error(err);
+  setMessage("Upload Failed");
+}
   };
-
   return (
     <div>
       <h1>Speech To Text App</h1>
