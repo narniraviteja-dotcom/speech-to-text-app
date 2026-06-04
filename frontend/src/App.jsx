@@ -32,10 +32,9 @@ formData.append("audio", file);
 
     try {
       const res = await axios.post(
-        "http://localhost:5000/upload",
-        formData
-      );
-
+  "https://speech-to-text-app-v5ty.onrender.com/upload",
+  formData
+);
       setHistory((prev) => [
   ...prev,
   {
