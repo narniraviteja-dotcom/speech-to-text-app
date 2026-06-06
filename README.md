@@ -1,16 +1,36 @@
-# React + Vite
+# Speech To Text App
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Project Overview
+This project allows users to upload audio files and convert them into text. The application is built using the MERN Stack and includes frontend deployment on Vercel.
 
-Currently, two official plugins are available:
+## Features
+- Audio File Upload
+- Speech-to-Text Processing
+- Transcription History
+- User Authentication
+- Responsive User Interface
+- Backend API Integration
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## Tech Stack
+- MongoDB / Supabase
+- Express.js
+- React.js
+- Node.js
+- Vite
+- Tailwind CSS
 
-## React Compiler
+## Project Structure
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+speech-to-text-app/
+├── frontend/
+├── backend/
+├── src/
+├── public/
+└── README.md
 
-## Expanding the ESLint configuration
+## Installation
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+### Clone Repository
+
+```bash
+git clone <repository-url>
